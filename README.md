@@ -30,9 +30,9 @@ This will add a default connection for user vagrant
 $ podman-remote info
 ```
 
-6. Check if you can pull and run nginx container
+6. Check if you can pull and run an nginx container
 ```
-podman-remote run -it --rm -d -p 8080:80 --name web nginx
+$ podman-remote run -it --rm -d -p 8080:80 --name web nginx
 ```
 Navigate to http://192.168.99.100:8080 and you should see nginx welcome screen.
 
