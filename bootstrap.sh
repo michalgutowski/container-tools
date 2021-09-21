@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Disable SELinux
+sudo setenforce 0
+sudo sed -i '/^SELINUX=.*/s//SELINUX=disabled/' /etc/selinux/config
+
 # Set up hosts file
 sudo sed -i 1d /etc/hosts 
 printf '192.168.99.100 podman\n' | sudo tee -a /etc/hosts > /dev/null
@@ -8,7 +12,7 @@ printf '192.168.99.100 podman\n' | sudo tee -a /etc/hosts > /dev/null
 sudo dnf -y update
 
 # Installing container tools
-sudo dnf -y install podman podman-docker podman-remote skopeo buildah runc git jq
+sudo dnf -y install podman podman-docker podman-remote skopeo buildah runc git jq net-tools bind-utils
 
 # Enabling the Podman API using systemd in rootless mode
 systemctl --user enable --now podman.socket
