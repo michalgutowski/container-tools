@@ -15,7 +15,7 @@ sudo dnf -y update
 sudo dnf -y install oracle-epel-release-el8
 
 # Installing container tools
-sudo dnf -y install podman podman-docker podman-remote podman-compose skopeo buildah runc git jq net-tools bind-utils
+sudo dnf -y install podman podman-docker podman-remote podman-compose skopeo buildah runc git jq net-tools bind-utils unzip
 
 # Enabling the Podman API using systemd in rootless mode
 systemctl --user enable --now podman.socket
